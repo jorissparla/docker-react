@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jsparla/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run jsparla/docker-react npm run test -- --coverage
